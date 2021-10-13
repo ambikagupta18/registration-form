@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST" enctype="multipart/form-data">
+            <label>Name:</label> <input type="text" th:field="*{name}" placeholder="Name" class="form-control mb-4 col-4" required="required" minlength=4 ><br><br>
+
+           <label>Email:</label>  <input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-4 col-4" required="required" minlength="3" maxlength="64" ><br><br>
+
+            <label>Mobile Number:</label> <input type="tel" th:field="*{phonenumber}" placeholder="Phone number" class="form-control mb-4 col-4" pattern="[7-9]{1}[0-9]{9}" 
+             title="Phone number with 7-9 and remaing 9 digit with 0-9" required="required"   maxlength=10>
+            <br><br>
+            
+            <label>State:</label>
+            <select th:field="*{state}">
+            <option th:each ="l:${stateList}" th:value="${l}" th:text="${l}"/>
+            </select><br><br>
+            
+            <label>Gender:</label>
+           <input type="radio" th:field="*{gender}" value="Male"/>Male
+           <input type="radio" th:field="*{gender}" value="Female"/>Female
+           <br><br>
+           
+           <label>Skills:</label>
+           <input type="checkbox" th:field="*{skills}" value="Java" />Java
+            <input type="checkbox" th:field="*{skills}" value="Python" />Python
+             <input type="checkbox" th:field="*{skills}" value="C" />C
+              <input type="checkbox" th:field="*{skills}" value="HTML" />HTML
+              <input type="checkbox" th:field="*{skills}" value="JavaScript" />JavaScript
+              <input type="checkbox" th:field="*{skills}" value="php" />php
+   <br><br>
+  <!--  <input class="file-uplod" type='file' name="file" onchange="readURL(this);" accept="image/*" /> -->
+  <input type="file" name="file" class="custom-file-input"
+					id="customFile"> <label class="custom-file-label"
+					for="customFile"></label>
+ 
+   <br><br>
+            <button type="submit" class="btn btn-info col-2"> Submit </button>
+        </form>
+
+<br><br>
+        <a th:href="@{/}"> Back to User List</a>
+    </div>
+</body>
+</html>

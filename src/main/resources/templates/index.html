@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+ href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+ crossorigin="anonymous">
+</head>
+<body>
+ <div class="container my-2">
+ <h1>User List</h1> 
+ <a th:href="@{/showNewUserForm}" class="btn btn-primary btn-sm mb-3"> Add User</a>
+  <table border="1" class = "table table-striped table-responsive-md">
+   <thead>
+    <tr>
+     <th> Name</th>
+     <th>Email</th>
+     <th>Phone Number</th>
+     <th>Gender</th>
+     <th>State</th>
+     <th>Skills</th>
+     <th>Image</th>
+     <th>Actions</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="user : ${listUser}">
+     <td th:text="${user.name}"></td>
+     <td th:text="${user.email}"></td>
+     <td th:text="${user.phonenumber}"></td>
+     <td th:text="${user.gender}"></td>
+     <td th:text="${user.state}"></td>
+     <td th:text="${user.skills}"></td>
+    <th scope="row"><img alt=""th:src="*{'data:image/jpeg;base64,'+{user.image}}"style="width: 70px; height: 70px;"></th>
+    
+      <td><a th:href="@{/showFormForUpdate/{id}(id=${user.id})}" class="btn btn-primary">Edit</a></td>
+     <!--  <form th:action="@{/showFormForUpdate/{id}(id=${user.id})}" th:object="${user}" method="POST" class="mt-2" enctype="multipart/form-data">
+    <button type="submit"class="btn btn-primary">Edit </button>
+    </form>--> 
+    </tr>
+   </tbody>
+  </table>
+ </div>
+</body>
+</html>

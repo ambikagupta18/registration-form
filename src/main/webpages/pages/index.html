@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+        <h1> Registration form</h1>
+
+  <table border="1" >
+   <thead>
+    <tr>
+     <th> Name</th>
+     <th>Email</th>
+     <th> Phone Number</th>
+     <th> Gender</th>
+     <th>State</th>
+      <th>Skills</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr th:each="user : ${listUser}">
+     <td th:text="${user.name}"></td>
+     <td th:text="${user.email}"></td>
+      <td th:text="${user.phoneNumber}"></td>
+       <td th:text="${user.gender}"></td>
+        <td th:text="${user.state}"></td>
+         <td th:text="${user.skills}"></td>
+     
+    </tr>
+   </tbody>
+  </table>
+
+</body>
+</html>
+</body>
+</html>
